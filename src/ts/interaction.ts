@@ -9,15 +9,51 @@ export function setupMouseTracking(): MouseTracking {
     const targetRotation = new THREE.Vector2();
     const currentRotation = new THREE.Vector2();
 
+    // Desktop mouse tracking
     window.addEventListener('mousemove', (event: MouseEvent) => {
-        const mouse = {
+        const normalized = {
             x: (event.clientX / window.innerWidth) * 2 - 1,
             y: -(event.clientY / window.innerHeight) * 2 + 1
         };
 
-        targetRotation.x = mouse.y * 0.5;
-        targetRotation.y = mouse.x * 0.5;
+        targetRotation.x = normalized.y * 0.5;
+        targetRotation.y = normalized.x * 0.5;
     });
+
+    // Mobile touch tracking
+    let lastTouch: { x: number; y: number } | null = null;
+
+    window.addEventListener('touchstart', (event: TouchEvent) => {
+        if (event.touches.length === 1) {
+            const touch = event.touches[0];
+            lastTouch = { x: touch.clientX, y: touch.clientY };
+        }
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (event: TouchEvent) => {
+        if (event.touches.length === 1) {
+            const touch = event.touches[0];
+
+            if (lastTouch) {
+                // Calculate drag delta and apply to rotation
+                const deltaX = (touch.clientX - lastTouch.x) / window.innerWidth;
+                const deltaY = (touch.clientY - lastTouch.y) / window.innerHeight;
+
+                targetRotation.y += deltaX * 2;
+                targetRotation.x -= deltaY * 2;
+
+                // Clamp rotation to reasonable bounds
+                targetRotation.x = Math.max(-0.8, Math.min(0.8, targetRotation.x));
+                targetRotation.y = Math.max(-0.8, Math.min(0.8, targetRotation.y));
+            }
+
+            lastTouch = { x: touch.clientX, y: touch.clientY };
+        }
+    }, { passive: true });
+
+    window.addEventListener('touchend', () => {
+        lastTouch = null;
+    }, { passive: true });
 
     return { targetRotation, currentRotation };
 }
