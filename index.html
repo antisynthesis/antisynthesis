@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tools for the digital human experience.">
+    <meta name="theme-color" content="#1b1b1b">
+    <title>ANTISYNTHESIS — Tools for the digital human experience</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" href="/src/css/styles.css">
+</head>
+<body>
+    <div id="canvas-container"></div>
+    <header id="header">
+        <img id="logo" src="/assets/images/logo.png" alt="ANTISYNTHESIS">
+        <div id="title-block">
+            <h1 id="title">ANTISYNTHESIS</h1>
+            <p id="subtitle">Digital tools for the human experience.</p>
+        </div>
+    </header>
+    <!-- HUD Stats Display -->
+    <div id="hud">
+        <div class="hud-section hud-left">
+            <div class="hud-label">ENTITY</div>
+            <div class="hud-value">CHRISTIAN R. VOZAR</div>
+            <div class="hud-sublabel">Chief Recursion Officer</div>
+        </div>
+        <div class="hud-section hud-stats">
+            <div class="stat-row">
+                <span class="stat-label">RECURSION_DEPTH</span>
+                <span class="stat-value" data-stat="recursion">∞</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">COGNITIVE_LOAD</span>
+                <span class="stat-value" data-stat="cognitive">87.3%</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">CAFFEINE_HALF_LIFE</span>
+                <span class="stat-value" data-stat="caffeine">4.2h</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">ENTROPY_RESISTANCE</span>
+                <span class="stat-value" data-stat="entropy">NOMINAL</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">ABSTRACTION_LAYERS</span>
+                <span class="stat-value" data-stat="layers">7</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">REALITY_SYNC</span>
+                <span class="stat-value" data-stat="sync">98.7%</span>
+            </div>
+        </div>
+        <div class="hud-section hud-status">
+            <div class="status-indicator active"></div>
+            <span class="status-text">SYSTEMS OPERATIONAL</span>
+        </div>
+    </div>
+
+    <footer id="footer">
+        <a href="mailto:contact@antisynthesis.com">Contact</a>
+        <span class="separator">|</span>
+        <a href="/privacy.html">Privacy</a>
+    </footer>
+    <script type="module" src="/src/ts/main.ts"></script>
+</body>
+</html>
