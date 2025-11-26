@@ -1,0 +1,29 @@
+{
+  "name": "antisynthesis",
+  "version": "1.0.0",
+  "description": "Tools for the digital human experience.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/three": "^0.160.0",
+    "terser": "^5.44.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.11"
+  },
+  "dependencies": {
+    "three": "^0.160.0"
+  },
+  "keywords": [
+    "antisynthesis",
+    "webgl",
+    "threejs",
+    "3d"
+  ],
+  "author": "ANTISYNTHESIS",
+  "license": "UNLICENSED",
+  "private": true
+}
